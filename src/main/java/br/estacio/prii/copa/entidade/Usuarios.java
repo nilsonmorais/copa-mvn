@@ -27,7 +27,7 @@ For more information, please refer to <http://unlicense.org>
 package br.estacio.prii.copa.entidade;
 
 import br.estacio.prii.copa.persistence.UsuariosDAO;
-import br.estacio.prii.copa.utils.Utils;
+import br.estacio.prii.copa.utils.MD5Helper;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Basic;
@@ -183,14 +183,14 @@ public class Usuarios implements Serializable {
      */
     public void setSenha(String senha) throws Exception {
         try {
-            this.senha = Utils.MD5(senha);
+            this.senha = MD5Helper.MD5(senha);
         } catch (Exception ex) {
             throw new Exception(ex.getMessage());
         }
     }
 
     public Boolean validaLogin(String senhaValida) throws Exception {
-        return senha.equals(Utils.MD5(senhaValida));
+        return senha.equals(MD5Helper.MD5(senhaValida));
     }
 
     public boolean checkUsuario() throws Exception {

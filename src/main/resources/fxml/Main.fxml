@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.estacio.prii.copa.gui.MainWindowController">
+  <children>
+      <BorderPane prefHeight="200.0" prefWidth="200.0">
+         <top>
+            <ToolBar minHeight="-Infinity" minWidth="-Infinity" BorderPane.alignment="CENTER">
+              <items>
+                  <MenuButton mnemonicParsing="false" text="Cadastros">
+                    <items>
+                      <MenuItem mnemonicParsing="false" text="Usuários" />
+                      <MenuItem mnemonicParsing="false" text="Geral" />
+                        <MenuItem mnemonicParsing="false" text="Sobre" />
+                    </items>
+                  </MenuButton>
+                  <MenuButton mnemonicParsing="false" text="Configurações">
+                     <items>
+                        <MenuItem fx:id="mnuUsers" mnemonicParsing="false" onAction="#onUsersMenuActionPerformed" text="Usuários" />
+                        <MenuItem mnemonicParsing="false" text="Geral" />
+                        <MenuItem mnemonicParsing="false" text="Sobre" />
+                     </items>
+                  </MenuButton>
+              </items>
+            </ToolBar>
+         </top>
+         <bottom>
+            <Pane fx:id="mainPane" prefHeight="571.0" prefWidth="900.0" BorderPane.alignment="CENTER" />
+         </bottom>
+      </BorderPane>
+  </children>
+</VBox>

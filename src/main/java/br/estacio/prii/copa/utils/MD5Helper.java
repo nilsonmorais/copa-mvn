@@ -39,53 +39,7 @@ import javax.swing.JOptionPane;
 /**
  * Alguns métodos utilitários.
  */
-public class Utils {
-
-    private static final Logger LOG = Logger.getLogger(Utils.class.getName());
-
-    public static Dimension getWindowDimensions() {
-        Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
-        int x = (int) (dimension.getWidth() / 2);
-        int y = (int) (dimension.getHeight() / 2);
-        return new Dimension(x, y);
-    }
-
-    public static void showDialog(String msg) {
-        JOptionPane.showMessageDialog(null, msg);
-    }
-
-    /**
-     *
-     * @param frame The object to centralize
-     */
-    public static void centerWindow(JFrame frame) {
-        Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
-        int x = (int) ((dimension.getWidth() - frame.getWidth()) / 2);
-        int y = (int) ((dimension.getHeight() - frame.getHeight()) / 2);
-        frame.setLocation(x, y);
-    }
-
-    /**
-     *
-     * @param label Tooltip for the icon
-     * @param icon The icon filename, ex: Add24.gif
-     * @return
-     */
-    public static JButton createButtonWithIcon(String label, String icon) {
-        JButton button = new JButton();
-        button.setBorderPainted(false);
-        button.setToolTipText(label);
-        if (icon != null) {
-            button.setIcon(getIconForButton(icon));
-        }
-        return button;
-    }
-
-    public static ImageIcon getIconForButton(String iconName) {
-        String urlString = "/toolbarButtonGraphics/general/" + iconName;
-        URL url = Utils.class.getClass().getResource(urlString);
-        return new ImageIcon(url);
-    }
+public class MD5Helper {
 
     /**
      * Retorna um hash MD5 de uma string.
@@ -108,28 +62,5 @@ public class Utils {
         } catch (Exception e) {
             throw new Exception(e.getMessage());
         }
-    }
-
-    public static void MaximizeJFrame(JFrame obj) {
-        obj.setExtendedState(obj.getExtendedState() | JFrame.MAXIMIZED_BOTH);
-    }
-
-    public static ImageIcon createImageIcon(String iconpath) {
-
-        java.net.URL imgURL = Utils.class.getResource(iconpath);
-        if (imgURL != null) {
-            return new ImageIcon(imgURL);
-        } else {
-            LOG.log(Level.WARNING, "Couldn''t find file: {0}", iconpath);
-            return null;
-        }
-    }
-
-    public static String showInput(String msg) {
-        return JOptionPane.showInputDialog(null, msg);
-    }
-
-    public static Boolean showConfirmation(String msg) {
-        return JOptionPane.showConfirmDialog(null, msg, "Aviso", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION;
     }
 }
