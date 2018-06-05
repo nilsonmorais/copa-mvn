@@ -24,43 +24,30 @@ OTHER DEALINGS IN THE SOFTWARE.
 
 For more information, please refer to <http://unlicense.org>
  */
-package br.estacio.prii.copa.main;
+package br.estacio.prii.copa.gui;
 
-import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
-import br.estacio.prii.copa.gui.Navigator;
+import java.net.URL;
+import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.ToggleButton;
 
-public class MainWindow extends Application {
-    private Scene scene;
+/**
+ *
+ * @author Nilson
+ */
+public class SearchController implements Initializable {
+
+    @FXML private ToggleButton btnClose;
+    
     @Override
-    public void start(Stage stage) throws IOException {
-        try {
-            Parent root = FXMLLoader.load(getClass().getResource(Navigator.getMain()));
-            scene = new Scene(root, 800, 475);
-
-            stage.setTitle("Copa 2018");
-            stage.setScene(scene);
-            stage.show();
-        } catch (IOException ex) {
-            Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex.getMessage());
-//            AlertHelper.showWarning(scene.getWindow(), ex.getMessage());
-        } catch (Exception ex){
-            Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex.getMessage());
-        }
+    public void initialize(URL location, ResourceBundle resources) {
+        
     }
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        launch(args);
+    
+    @FXML
+    protected void onCloseAction(ActionEvent event){
+        
     }
-
-   
 }

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="422.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.estacio.prii.copa.gui.SearchController">
+   <children>
+      <ToolBar prefHeight="40.0" prefWidth="399.0">
+         <items>
+            <HBox alignment="CENTER" prefHeight="32.0" prefWidth="586.0" spacing="5.0" style="-fx-padding: 10;">
+               <children>
+                  <TextField prefHeight="26.0" prefWidth="301.0" />
+                  <ToggleButton fx:id="btnSearch" mnemonicParsing="false" stylesheets="@Styles.css" text="Pesquisar" />
+               </children>
+            </HBox>
+         </items>
+      </ToolBar>
+      <ListView prefHeight="338.0" prefWidth="600.0" />
+      <ToolBar nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="399.0">
+         <items>
+            <HBox alignment="BOTTOM_CENTER" cacheShape="false" fillHeight="false" prefHeight="28.0" prefWidth="95.0" scaleShape="false">
+               <children>
+                  <ToggleButton mnemonicParsing="false" onAction="#onCloseAction" prefHeight="28.0" prefWidth="104.0" styleClass="btnClose" stylesheets="@Styles.css" text="Fechar" textAlignment="RIGHT" />
+               </children>
+            </HBox>
+         </items>
+      </ToolBar>
+   </children>
+</VBox>
