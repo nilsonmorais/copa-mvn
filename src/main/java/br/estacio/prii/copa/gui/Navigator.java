@@ -26,10 +26,8 @@ For more information, please refer to <http://unlicense.org>
  */
 package br.estacio.prii.copa.gui;
 
-import br.estacio.prii.copa.utils.AlertHelper;
+import br.estacio.prii.copa.utils.ErrorHelper;
 import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -69,8 +67,7 @@ public class Navigator {
             target.getChildren().removeAll();
             target.getChildren().add(newLoadedPane);
         } catch (IOException ex) {
-            Logger.getLogger(Navigator.class.getName()).log(Level.INFO, ex.getMessage());
-            AlertHelper.showWarning(null, ex.getMessage());
+            ErrorHelper.showException(ex.getMessage());
         }
 
     }
@@ -94,8 +91,7 @@ public class Navigator {
             stage.setScene(new Scene(root1));
             stage.show();
         } catch (IOException ex) {
-            Logger.getLogger(UsersController.class.getName()).log(Level.INFO, ex.getMessage());
-            AlertHelper.showWarning(null, ex.getMessage());
+            ErrorHelper.showException(ex.getMessage());
         }
     }
 }

@@ -35,6 +35,8 @@ import javafx.stage.Window;
  */
 public class AlertHelper {
     public static void showAlert(Alert.AlertType alertType, Window owner, String title, String message) {
+        alertType = alertType == null ? Alert.AlertType.INFORMATION: alertType;
+        title = title == null ? "Info" : title;
         Alert alert = new Alert(alertType);
         alert.setTitle(title);
         alert.setHeaderText(null);
