@@ -26,14 +26,17 @@ For more information, please refer to <http://unlicense.org>
  */
 package br.estacio.prii.copa.gui;
 
+import br.estacio.prii.copa.entidade.TimeObject;
 import br.estacio.prii.copa.utils.ErrorHelper;
 import br.estacio.prii.copa.http.CopaAPI;
 import br.estacio.prii.copa.utils.AlertHelper;
 import java.net.URL;
+import java.util.Iterator;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.layout.Pane;
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 /**
@@ -54,14 +57,21 @@ public class SubMainController implements Initializable {
     @FXML
     Pane paneNextEvents;
 
-//    @FXML
-//    protected void btnSearchAction(ActionEvent event) throws IOException {
-//        openSearchDialog();
-//    }
     private void loadGames() throws Exception {
         try {
-            JSONObject games = CopaAPI.getGames();
-            AlertHelper.showAlert(null, null, null, games.toString());
+            JSONObject result = CopaAPI.getGames();
+            JSONObject grupos = result.getJSONObject("standings");
+
+            for (Iterator iterator = grupos.keys(); iterator.hasNext();) {
+                String grupoID = (String) iterator.next();
+                JSONArray grupo = (JSONArray) grupos.get(grupoID);
+                for (int i = 0; i < grupo.length(); i++) {
+                    JSONObject time = (JSONObject) grupo.get(i);
+                    TimeObject t = new TimeObject(time);
+                }
+                
+            }
+//            AlertHelper.showAlert(null, null, null, games.toString());
         } catch (Exception exception) {
             ErrorHelper.showException(exception.getMessage());
         }
