@@ -26,7 +26,14 @@ For more information, please refer to <http://unlicense.org>
  */
 package br.estacio.prii.copa.gui;
 
+import java.io.IOException;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+
 public class Navigator {
+
+    private static Scene scene;
 
     public static String getUsers() {
         return "/fxml/Users.fxml";
@@ -38,6 +45,15 @@ public class Navigator {
 
     static String getSearch() {
         return "/fxml/Search.fxml";
+    }
+
+    public static void loadMainScene(javafx.stage.Stage stage) throws IOException {
+        Parent root;
+        root = FXMLLoader.load(Navigator.class.getResource("/fxml/Main.fxml"));
+        scene = new Scene(root, 800, 475);
+        stage.setTitle("Copa 2018");
+        stage.setScene(scene);
+        stage.show();
     }
 
 }

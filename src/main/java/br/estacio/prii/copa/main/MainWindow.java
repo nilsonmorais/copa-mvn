@@ -30,8 +30,6 @@ import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import br.estacio.prii.copa.gui.Navigator;
@@ -41,12 +39,7 @@ public class MainWindow extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource(Navigator.getMain()));
-            scene = new Scene(root, 800, 475);
-
-            stage.setTitle("Copa 2018");
-            stage.setScene(scene);
-            stage.show();
+            Navigator.loadMainScene(stage);
         } catch (IOException ex) {
             Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex.getMessage());
 //            AlertHelper.showWarning(scene.getWindow(), ex.getMessage());

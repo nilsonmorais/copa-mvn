@@ -32,6 +32,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ToggleButton;
+import javafx.stage.Stage;
 
 /**
  *
@@ -48,6 +49,10 @@ public class SearchController implements Initializable {
     
     @FXML
     protected void onCloseAction(ActionEvent event){
-        
+        ((Stage)(((ToggleButton)event.getSource()).getScene().getWindow())).close();
+    }
+    @FXML
+    protected void OnMousePressedAction(ActionEvent event){
+    
     }
 }
