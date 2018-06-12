@@ -26,37 +26,24 @@ For more information, please refer to <http://unlicense.org>
  */
 package br.estacio.prii.copa.gui;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.MenuItem;
-import javafx.scene.layout.Pane;
 
 /**
- * FXML Controller class
  *
  * @author Nilson
  */
-public class MainWindowController implements Initializable {
+public class SubMainController implements Initializable {
 
-    @FXML private MenuItem mnuUsers;
-    @FXML private Pane mainPane;
-
-    /**
-     * Initializes the controller class.
-     */
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        Navigator.loadSubMainScene(mainPane);
+    public void initialize(URL location, ResourceBundle resources) {
     }
 
-    @FXML
-    protected void onUsersMenuActionPerformed(ActionEvent event) throws IOException {
-//        AlertHelper.showWarning(null, "mnuUsersAction Performed");
-        Navigator.loadUsersScene(mainPane);
-    }
+//    @FXML
+//    protected void btnSearchAction(ActionEvent event) throws IOException {
+//        openSearchDialog();
+//    }
+
 
 }
