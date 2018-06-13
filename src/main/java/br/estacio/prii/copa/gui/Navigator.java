@@ -53,11 +53,11 @@ public class Navigator {
         stage.show();
     }
 
-    static void loadSubMainScene(javafx.scene.layout.Pane mainPane) {
+    public static void loadSubMainScene(javafx.scene.layout.Pane mainPane) {
         loadSceneIntoPane(SubMainScene, mainPane);
     }
 
-    static void loadUsersScene(Pane mainPane) {
+    public static void loadUsersScene(Pane mainPane) {
         loadSceneIntoPane(UsersScene, mainPane);
     }
 
@@ -72,7 +72,7 @@ public class Navigator {
 
     }
 
-    static void loadSearchScene() {
+    public static void loadSearchScene() {
         loadScene(SearchScene, true, "Pesquisar");
 
     }

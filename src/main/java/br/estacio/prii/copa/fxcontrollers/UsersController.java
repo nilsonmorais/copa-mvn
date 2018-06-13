@@ -24,8 +24,9 @@ OTHER DEALINGS IN THE SOFTWARE.
 
 For more information, please refer to <http://unlicense.org>
  */
-package br.estacio.prii.copa.gui;
+package br.estacio.prii.copa.fxcontrollers;
 
+import br.estacio.prii.copa.gui.Navigator;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;

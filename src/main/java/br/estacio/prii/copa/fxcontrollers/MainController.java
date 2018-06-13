@@ -24,8 +24,9 @@ OTHER DEALINGS IN THE SOFTWARE.
 
 For more information, please refer to <http://unlicense.org>
  */
-package br.estacio.prii.copa.gui;
+package br.estacio.prii.copa.fxcontrollers;
 
+import br.estacio.prii.copa.gui.Navigator;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -40,7 +41,7 @@ import javafx.scene.layout.Pane;
  *
  * @author Nilson
  */
-public class MainWindowController implements Initializable {
+public class MainController implements Initializable {
 
     @FXML private MenuItem mnuUsers;
     @FXML private Pane mainPane;
@@ -57,6 +58,10 @@ public class MainWindowController implements Initializable {
     protected void onUsersMenuActionPerformed(ActionEvent event) throws IOException {
 //        AlertHelper.showWarning(null, "mnuUsersAction Performed");
         Navigator.loadUsersScene(mainPane);
+    }
+    @FXML
+    protected void onBtnInicioActionPerformed(ActionEvent event) throws IOException {
+//        AlertHelper.showWarning(null, "mnuUsersAction Performed");
     }
 
 }

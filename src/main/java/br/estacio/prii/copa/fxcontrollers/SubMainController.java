@@ -24,9 +24,10 @@ OTHER DEALINGS IN THE SOFTWARE.
 
 For more information, please refer to <http://unlicense.org>
  */
-package br.estacio.prii.copa.gui;
+package br.estacio.prii.copa.fxcontrollers;
 
 import br.estacio.prii.copa.entidade.TimeObject;
+import br.estacio.prii.copa.gui.Navigator;
 import br.estacio.prii.copa.utils.ErrorHelper;
 import br.estacio.prii.copa.http.CopaAPI;
 import java.net.URL;

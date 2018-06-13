@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="427.0" prefWidth="617.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.estacio.prii.copa.gui.SubMainController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="427.0" prefWidth="617.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.estacio.prii.copa.fxcontrollers.SubMainController">
    <children>
       <Label text="Times">
          <font>
@@ -19,6 +19,9 @@
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
          </VBox.margin>
       </Label>
-      <FlowPane fx:id="paneNextEvents" prefHeight="295.0" prefWidth="617.0" />
+      <FlowPane fx:id="paneNextEvents" hgap="4.0" prefHeight="295.0" prefWidth="800.0" style="-fx-background-color: DAE6F3;" vgap="4.0">
+         <padding>
+            <Insets bottom="5.0" top="5.0" />
+         </padding></FlowPane>
    </children>
 </VBox>

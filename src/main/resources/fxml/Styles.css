@@ -50,3 +50,6 @@ For more information, please refer to <http://unlicense.org>
 .btnClose {
     -fx-graphic: url('../process-stop.png');
 }
+.btnHome {
+    -fx-graphic: url('../home.png');
+}
