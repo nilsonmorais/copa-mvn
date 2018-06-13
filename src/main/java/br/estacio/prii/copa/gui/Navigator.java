@@ -61,7 +61,7 @@ public class Navigator {
         loadSceneIntoPane(UsersScene, mainPane);
     }
 
-    private static void loadSceneIntoPane(String scene, Pane target) {
+    public static void loadSceneIntoPane(String scene, Pane target) {
         try {
             Pane newLoadedPane = FXMLLoader.load(Navigator.class.getResource(scene));
             target.getChildren().removeAll();

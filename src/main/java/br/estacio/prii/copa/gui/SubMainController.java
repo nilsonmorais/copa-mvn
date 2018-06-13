@@ -29,20 +29,17 @@ package br.estacio.prii.copa.gui;
 import br.estacio.prii.copa.entidade.TimeObject;
 import br.estacio.prii.copa.utils.ErrorHelper;
 import br.estacio.prii.copa.http.CopaAPI;
-import br.estacio.prii.copa.utils.AlertHelper;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.layout.Pane;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-/**
- *
- * @author Nilson
- */
 public class SubMainController implements Initializable {
 
     @Override
@@ -55,21 +52,32 @@ public class SubMainController implements Initializable {
     }
 
     @FXML
-    Pane paneNextEvents;
+    private Pane paneNextEvents;
 
     private void loadGames() throws Exception {
         try {
             JSONObject result = CopaAPI.getGames();
             JSONObject grupos = result.getJSONObject("standings");
-
+            ArrayList<TimeObject> timesList = new ArrayList<>();
             for (Iterator iterator = grupos.keys(); iterator.hasNext();) {
                 String grupoID = (String) iterator.next();
                 JSONArray grupo = (JSONArray) grupos.get(grupoID);
                 for (int i = 0; i < grupo.length(); i++) {
                     JSONObject time = (JSONObject) grupo.get(i);
                     TimeObject t = new TimeObject(time);
+                    timesList.add(t);
                 }
-                
+
+            }
+
+            paneNextEvents.getChildren().removeAll();
+
+            for (TimeObject timeObject : timesList) {
+                GroupController g = new GroupController(timeObject.getCrestURI(), timeObject.getTeam());
+                FXMLLoader loader = new FXMLLoader(Navigator.class.getResource("/fxml/Group.fxml"));
+                loader.setController(g);
+                Pane tmpPane = (Pane) loader.load();
+                paneNextEvents.getChildren().add(tmpPane);
             }
 //            AlertHelper.showAlert(null, null, null, games.toString());
         } catch (Exception exception) {
